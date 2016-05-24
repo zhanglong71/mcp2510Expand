@@ -1,0 +1,10 @@
+
+CROSS_COMPILE   = arm-linux-
+CC = $(CROSS_COMPILE)gcc
+CFLAG = -Wall -g
+RM = rm -rf
+
+all:
+	$(CC) $(CFLAG) app_light.c -o app_light
+clean:
+	$(RM) app_light 

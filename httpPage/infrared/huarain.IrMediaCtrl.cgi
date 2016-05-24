@@ -1,0 +1,196 @@
+#!/bin/sh
+
+key="01"
+house="0f"
+devType="04"
+function="21"
+
+case $QUERY_STRING in
+    *KKK00*)
+        key="00"
+        ;;
+    *KKK01*)
+        key="01"
+        ;;
+    *KKK02*)
+        key="02"
+        ;;
+    *KKK03*)
+        key="03"
+        ;;
+    *KKK04*)
+        key="04"
+        ;;
+    *KKK05*)
+        key="05"
+        ;;
+esac
+
+case $QUERY_STRING in
+    *FFF00*)
+        function="00"
+        ;;
+    *FFF01*)
+        function="01"
+        ;;
+    *FFF02*)
+        function="02"
+        ;;
+    *FFF03*)
+        function="03"
+        ;;
+    *FFF04*)
+        function="04"
+        ;;
+    *FFF05*)
+        function="05"
+        ;;
+    *FFF06*)
+        function="06"
+        ;;
+    *FFF07*)
+        function="07"
+        ;;
+    *FFF08*)
+        function="08"
+        ;;
+    *FFF09*)
+        function="09"
+        ;;
+    *FFF10*)
+        function="0A"
+        ;;
+    *FFF11*)
+        function="0B"
+        ;;
+    *FFF12*)
+        function="0C"
+        ;;
+    *FFF13*)
+        function="0D"
+        ;;
+    *FFF14*)
+        function="0E"
+        ;;
+    *FFF15*)
+        function="0F"
+        ;;
+    *FFF16*)
+        function="10"
+        ;;
+    *FFF17*)
+        function="11"
+        ;;
+    *FFF18*)
+        function="12"
+        ;;
+    *FFF19*)
+        function="13"
+        ;;
+    *FFF20*)
+        function="24"
+        ;;
+    *FFF21*)
+        function="15"
+        ;;
+    *FFF22*)
+        function="16"
+        ;;
+    *FFF23*)
+        function="17"
+        ;;
+    *FFF24*)
+        function="18"
+        ;;
+    *FFF25*)
+        function="19"
+        ;;
+    *FFF26*)
+        function="1A"
+        ;;
+    *FFF27*)
+        function="1B"
+        ;;
+    *FFF28*)
+        function="1C"
+        ;;
+    *FFF29*)
+        function="1D"
+        ;;
+    *FFF30*)
+        function="1E"
+        ;;
+    *FFF31*)
+        function="1F"
+        ;;
+    *FFF32*)
+        function="20"
+        ;;
+    *FFF33*)
+        function="21"
+        ;;
+    *FFF34*)
+        function="22"
+        ;;
+    *FFF35*)
+        function="23"
+        ;;
+    *FFF36*)
+        function="24"
+        ;;
+    *FFF37*)
+        function="25"
+        ;;
+    *FFF38*)
+        function="26"
+        ;;
+    *FFF39*)
+        function="27"
+        ;;
+    *FFF40*)
+        function="28"
+        ;;
+    *FFF41*)
+        function="29"
+        ;;
+    *FFF42*)
+        function="2A"
+        ;;
+    *FFF43*)
+        function="2B"
+        ;;
+    *FFF44*)
+        function="2C"
+        ;;
+    *FFF45*)
+        function="2D"
+        ;;
+    *FFF46*)
+        function="2E"
+        ;;
+    *FFF47*)
+        function="2F"
+        ;;
+    *FFF48*)
+        function="30"
+        ;;
+    *FFF49*)
+        function="31"
+        ;;
+    *FFF50*)
+        function="32"
+        ;;
+esac
+
+WORKDIR=/root/huarain/
+#${WORKDIR}/app_raw_write /dev/mcp2510 ${key}${house}${devType}000000000000004201${function}0000 4
+${WORKDIR}/app_raw_write /dev/mcp2510 ${key}${house}${devType}000000000000004201${function}0000
+
+echo "Content-type: text/html; charset=gb2312"
+echo
+
+# /bin/cat goto_IrChSelect.html
+/bin/cat IrMediaCtrl.html
+
+exit 0
+

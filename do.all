@@ -1,0 +1,64 @@
+#!/bin/sh
+
+CURRENTDIR=`pwd`
+echo "current director is: ${CURRENTDIR}"
+echo
+
+make clean;make;cp -rv mcp2510mode.ko ~/tftpboot/mcp2510-2.6.30.4.ko;make clean
+
+cd raw;make clean;make;cp -rv app_raw_write ~/tftpboot/;cp -rv app_raw_read ~/tftpboot/;cp -rv app_raw_read-loop ~/tftpboot/;cp -rv app_raw_ioctl ~/tftpboot/;make clean
+# cd ..
+cd ${CURRENTDIR}
+
+# cd light;make clean;make;cp -rv light.ko ~/tftpboot/;make clean;
+# cd test_APP;make clean;make;cp -rv app_light ~/tftpboot/; cp -rv app_light-loop ~/tftpboot/;make clean
+# cd ../..
+# cd ${CURRENTDIR}
+
+cd zigbee;make clean;make;cp -rv zigbee.ko ~/tftpboot/;make clean;
+cd test_APP;make clean;make;cp -rv app_zigbee ~/tftpboot/; cp -rv app_zigbee-loop ~/tftpboot/;make clean
+#cd ../..
+cd ${CURRENTDIR}
+
+cd x10;make clean;make;cp -rv x10.ko ~/tftpboot/;make clean;
+cd test_APP;make clean;make;cp -rv app_x10 ~/tftpboot/; cp -rv app_x10-loop ~/tftpboot/;make clean
+# cd ../..
+cd ${CURRENTDIR}
+
+cd lockBy315M;make clean;make;cp -rv lockBy315M.ko ~/tftpboot/;make clean;
+cd test_APP;make clean;make;cp -rv app_lockBy315M ~/tftpboot/; cp -rv app_lockBy315M-loop ~/tftpboot/
+# cd ../..
+cd ${CURRENTDIR}
+
+cd connServer/connServer/server;make;cp -rv connServer ~/tftpboot;make clean;
+cd ../client/host;make;cp -rv host ~/tftpboot;make clean;
+cd ../slave;make;cp -rv slave ~/tftpboot;make clean;
+# cd ../../../..
+cd ${CURRENTDIR}
+
+# cd stub/stub-mcp2510
+# make clean;make;cp -rv mcp.ko ~/tftpboot/mcp2510-2.6.32.2.ko;make clean
+# cd test_app;make clean;make;cp -rv app_rw ~/tftpboot/ ;make clean
+# cd ../../..
+# cd ${CURRENTDIR}
+
+cd buttons/modules/; make clean;make;cp -rv keyModule.ko ~/tftpboot/;make clean
+cd test_APP;make clean;make;cp -rv huarainBtns ~/tftpboot/;make clean;cp -vr recover.sh ~/tftpboot/; cp -rv net.conf.dfl ~/tftpboot/;
+cd ${CURRENTDIR}
+
+cp -vr ./raw/sh/create_node.sh ~/tftpboot/;
+cp -vr ./x10/test_APP/sh/marquee.sh ~/tftpboot/;
+
+cp -vr ./sh/ex04.sh ~/tftpboot/; cp -vr ./sh/conf_file ~/tftpboot/;
+
+#httpPage
+cp -vr ./httpPage/index.html ~/tftpboot/; 
+
+cp -vr ./httpPage/x10/x10Ctrl.html ~/tftpboot/; 
+cp -vr ./httpPage/x10/huarain.x10.cgi ~/tftpboot/; 
+cp -vr ./httpPage/x10/goto2.html ~/tftpboot/;
+
+cp -vr ./httpPage/infrared/IrChSelect.html ~/tftpboot/;
+cp -vr ./httpPage/infrared/goto_IrChSelect.html ~/tftpboot/;
+cp -vr ./httpPage/infrared/huarain.IrChSelect.cgi ~/tftpboot/; 
+
